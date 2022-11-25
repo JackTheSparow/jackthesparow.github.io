@@ -1,4 +1,4 @@
-# JackTheSparow
+# Jack Sparow's Blog
 
 ## About
 
