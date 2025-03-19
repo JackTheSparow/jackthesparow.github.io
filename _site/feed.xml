@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-06-05T17:24:24+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">JackTheSparow</title><subtitle>Welcome to The Pirates Bay. The website is under development</subtitle><entry><title type="html">CyberCup Hackathon</title><link href="http://localhost:4000/cybercup-hackathon" rel="alternate" type="text/html" title="CyberCup Hackathon" /><published>2023-01-21T13:08:20+05:30</published><updated>2023-01-21T13:08:20+05:30</updated><id>http://localhost:4000/cybercup-hackathon</id><content type="html" xml:base="http://localhost:4000/cybercup-hackathon"><![CDATA[<p>I am thrilled to share the story of how my team, Pirates Bay,
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-19T03:08:04-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">JackTheSparow</title><subtitle>Welcome to The Pirates Bay. The website is under development</subtitle><entry><title type="html">CyberCup Hackathon</title><link href="http://localhost:4000/cybercup-hackathon" rel="alternate" type="text/html" title="CyberCup Hackathon" /><published>2023-01-21T02:38:20-05:00</published><updated>2023-01-21T02:38:20-05:00</updated><id>http://localhost:4000/cybercup-hackathon</id><content type="html" xml:base="http://localhost:4000/cybercup-hackathon"><![CDATA[<p>I am thrilled to share the story of how my team, Pirates Bay,
 achieved an incredible victory in the 24-hour Cybersecurity
 hackathon named CyberCup.</p>
 
@@ -16,4 +16,56 @@ Note: Note that your target audience is the Executive Management of the Enterpri
 
 <p>Our Solution:</p>
 
-<p>In order to make the story seem realistic we designed a scenario of attacking a Systems Engineer with Admin Privileges from a famous Supply Chain Service Provider to the College.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I am thrilled to share the story of how my team, Pirates Bay, achieved an incredible victory in the 24-hour Cybersecurity hackathon named CyberCup.]]></summary></entry></feed>
+<p>In order to make the story seem realistic we designed a scenario of attacking a Systems Engineer with Admin Privileges from a famous Supply Chain Service Provider to the College.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I am thrilled to share the story of how my team, Pirates Bay, achieved an incredible victory in the 24-hour Cybersecurity hackathon named CyberCup.]]></summary></entry><entry><title type="html">qcow2 Virtual Machine Image Compression</title><link href="http://localhost:4000/qemu-images-storage-space" rel="alternate" type="text/html" title="qcow2 Virtual Machine Image Compression" /><published>2023-01-21T02:38:20-05:00</published><updated>2023-01-21T02:38:20-05:00</updated><id>http://localhost:4000/qemu_images</id><content type="html" xml:base="http://localhost:4000/qemu-images-storage-space"><![CDATA[<h3 id="kvm-qcow2-image-compression">KVM qcow2 Image Compression</h3>
+
+<p>Have you ever encountered your QEMU-KVM Virtual Machine Image in qcow2 format eating your storage space?
+If yes, today we will solve that problem. The problem is due to <code class="language-plaintext highlighter-rouge">thin provisioning</code></p>
+
+<p>QEMU-KVM Virtual Machine(VM) Images take extra space with snapshots as original image size increases.
+We will restore the image to minimal size, deleting extra space occupied by snapshots.</p>
+
+<details>
+  <summary> Thin Provisioning</summary>
+  <p>When a snapshot is taken, the changes made to the VM after the snapshot are stored in a separate file. With thin provisioning, the snapshot size can increase dynamically as more data is written to the VM after the snapshot is taken. This means that the snapshot will only consume additional space as changes occur, rather than reserving a fixed amount of space upfront.</p>
+</details>
+
+<h3 id="general">General</h3>
+
+<ul>
+  <li>Snapshots acquire double space that of virtual disk and don’t erase back automatically.</li>
+  <li>Delete Snapshots using CLI(qemu-img)</li>
+  <li>Always try to use cli qemu for creating VMs and operating them</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">ls</code> cannot understand <a href="#### thin-provisioning"><code class="language-plaintext highlighter-rouge">thin provisioning</code></a> , use Disk Utility <code class="language-plaintext highlighter-rouge">du</code> instead</p>
+
+<p>Here is my sample disk size:
+<img src="assets/qcow2_size.png" alt="qcow2-image-size" /></p>
+
+<p><strong>qemu-img</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">qemu-img info Qubes.qcow2</code></li>
+</ul>
+
+<p><strong>Deleting Snapshots</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sudo qemu-img snapshot -d snapshot2(name) CTF.qcow2</code></li>
+</ul>
+
+<p><strong>virt-sparsify</strong></p>
+
+<p>Free space within the disk image can be converted back to free space on the host. Check <a href="https://libguestfs.org/virt-sparsify.1.html">documentation</a> 
+for all features.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sudo virt-sparsify -v -x --in-place CTF.qcow2</code></li>
+  <li><code class="language-plaintext highlighter-rouge">sudo virt-sparsify CTF.qcow2 compressedCTF.qcow2</code></li>
+</ul>
+
+<h3 id="before-compression">Before Compression</h3>
+<p><img src="/assets/before_size.png" alt="size-of-qcow2-image-before-compression" /></p>
+
+<h3 id="after-compression">After Compression</h3>
+<p><img src="/assets/after_size.png" alt="size-of-qcow2-image-after-compression" /></p>]]></content><author><name></name></author><summary type="html"><![CDATA[KVM qcow2 Image Compression]]></summary></entry></feed>
