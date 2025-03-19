@@ -4,11 +4,20 @@ title: About
 permalink: /about/
 ---
 
-Hello, I'm NC, and I go by JackTheSparow on the Internet. I play Capture The Flag(Cybersecurity Competitions) with [Maple Bacon](https://maplebacon.org/about/).
+Hello World, I am NC and I go by Jack Sparow on the Internet. I play Capture The Flag(CTFs) in Reverse Engineering, Forensics, OSINT & Misc Categories. 
 
-I will be sharing my experiences and insights on various topics related to Cybersecurity, Linux, Programming and much more. In
-particular, I will be posting [Capture The Flag](https://maplebacon.org/getting_started/) Writeups, detailing my thought 
-process and solutions for various 
-challenges. If you're a seasoned cybersecurity professional I look forward for your feedback and tips. And if you're a beginner and just starting out, I hope that my blog will provide you with valuable information and inspiration.
+I regularly participate in Cybersecurity Competitions including but not limited to:
 
-Stay tuned for more updates and feel free to leave comments or suggestions through Email and Github.
+- Department of Energy's [Cyberforce](https://cyberforce.energy.gov/cyberforce-competition/prior-competitions/doe-cyberforce-competition-2024/)
+- [NSA Codebreakers](https://nsa-codebreaker.org/leaderboard)
+- [SECCDC](https://cyberflorida.org/seccdc/)(Southeast Colligiate Cyber Defense Competition)
+- Weekly Jeopardy Style CTFs
+
+CTF Teams
+
+- [Maple Bacon](https://maplebacon.org/about/) @ University of British Columbia
+- [Cyber Hawks](https://cyberhawks.org/) @ University of North Georgia
+
+I will be sharing my writeups and insights on various topics related to Cybersecurity, Linux, Programming and much more. If you want to get started in CTFs here are some resources -.
+
+Stay tuned for more updates and feel free to communicate through Email.

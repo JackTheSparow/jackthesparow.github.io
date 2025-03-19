@@ -1,7 +1,7 @@
 ---
 layout: post
 title: qcow2 Virtual Machine Image Compression
-date: 2023-01-21 13:08:20 +0530
+date: 2023-12-10 13:08:20 +0530
 #categories: 
 permalink: "/qemu-images-storage-space"
 ---
