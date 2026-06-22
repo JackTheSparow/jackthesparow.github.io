@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+      location.replace("https://nimish.ch" + location.pathname + location.search + location.hash);
+    </script>
+  </head>
+  <body>
+    <p>Moved to <a id="target" href="https://nimish.ch/">nimish.ch</a>.</p>
+    <script>
+      document.getElementById("target").href =
+        "https://nimish.ch" + location.pathname + location.search + location.hash;
+    </script>
+  </body>
+</html>
